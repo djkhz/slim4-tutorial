@@ -10,7 +10,7 @@ return function (App $app) {
     $app->get('/users/{id}', \App\Action\UserReadAction::class);
     $app->post('/users', \App\Action\UserCreateAction::class);
 
-    $app->post('/test', function ($request, $response, array $args) {
+    $app->get('/test', function ($request, $response, array $args) {
         $uri = $request->getUri();
 
         if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
