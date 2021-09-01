@@ -11,11 +11,11 @@ return function (App $app) {
     $app->post('/users', \App\Action\UserCreateAction::class);
 
     $app->post('/test', function ($request, $response, array $args) {
-$uri = $request->getUri();
+        $uri = $request->getUri();
 
         if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
             $url = (string)$uri->withScheme('https')->withPort(443);
-            $response = $this->responseFactory->createResponse();
+            // $response = $this->responseFactory->createResponse();
             // Redirect
             // $response = $response->withStatus(302)->withHeader('Location', $url);
             
