@@ -11,10 +11,6 @@ return [
         return require __DIR__ . '/settings.php';
     },
     
-    ResponseFactoryInterface::class => function (ContainerInterface $container) {
-        return $container->get(App::class)->getResponseFactory();
-    },
-
     App::class => function (ContainerInterface $container) {
         AppFactory::setContainer($container);
 
@@ -51,5 +47,10 @@ return [
     BasePathMiddleware::class => function (ContainerInterface $container) {
         return new BasePathMiddleware($container->get(App::class));
     },
+    
+    ResponseFactoryInterface::class => function (ContainerInterface $container) {
+        return $container->get(App::class)->getResponseFactory();
+    },
+
 
 ];
