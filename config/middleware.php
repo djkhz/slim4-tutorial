@@ -12,9 +12,9 @@ return function (App $app) {
     // Add the Slim built-in routing middleware
     $app->addRoutingMiddleware();
 
-    // $app->add(BasePathMiddleware::class);
-
-    $app->add(HttpsMiddleware::class);
+    $app->add(BasePathMiddleware::class);
+    
+    // $app->add(HttpsMiddleware::class);
     // Handle exceptions
     $app->add(ErrorMiddleware::class);
 };
