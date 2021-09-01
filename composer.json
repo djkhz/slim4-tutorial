@@ -12,8 +12,8 @@
         "ext-pdo": "*",
         "php-di/php-di": "^6.3",
         "selective/basepath": "^2",
-        "slim/psr7": "^1.2",
-        "slim/slim": "^4.6"
+        "slim/psr7": "^1.4",
+        "slim/slim": "4.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.4 || ^9"
