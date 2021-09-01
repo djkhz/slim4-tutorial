@@ -22,7 +22,7 @@ return function (App $app) {
 
         // return $response->withHeader('Location', $url);
         $response->getBody()->write($uri->getScheme());
-        return var_dump($request->getHeader("X-Url-Scheme"));
+        return var_dump($request->getUri());
         }
         // return $response>withStatus(302)->withHeader('Location', 'your-new-uri');
         $response->getBody()->write('Hello World');
