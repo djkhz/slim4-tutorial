@@ -14,7 +14,7 @@ return function (App $app) {
     
     $app->add(BasePathMiddleware::class);
     
-    $app->add(HttpsMiddleware::class);
+    //$app->add(HttpsMiddleware::class);
     // Handle exceptions
     $app->add(ErrorMiddleware::class);
 };
