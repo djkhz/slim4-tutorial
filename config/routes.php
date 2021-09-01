@@ -12,6 +12,7 @@ return function (App $app) {
 
     $app->get('/test', function ($request, $response, array $args) {
         $uri = $request->getUri();
+        if(! $request->secure()) {
         if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
             $url = (string)$uri->withScheme('https')->withPort(443);
             // $response = $this->responseFactory->createResponse();
@@ -22,7 +23,7 @@ return function (App $app) {
 
         // return $response->withHeader('Location', $url);
         $response->getBody()->write($uri->getScheme());
-        return var_dump($request->getUri());
+        return var_dump($request->getMethod());
         }
         // return $response>withStatus(302)->withHeader('Location', 'your-new-uri');
         $response->getBody()->write('Hello World');
