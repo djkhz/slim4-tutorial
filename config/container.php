@@ -5,24 +5,14 @@ use Selective\BasePath\BasePathMiddleware;
 use Slim\App;
 use Slim\Factory\AppFactory;
 use Slim\Middleware\ErrorMiddleware;
-return [
-    // ...
-
-    ResponseFactoryInterface::class => function (ContainerInterface $container) {
-        return $container->get(App::class)->getResponseFactory();
-    },
-
-    App::class => function (ContainerInterface $container) {
-        AppFactory::setContainer($container);
-
-        return AppFactory::create();
-    },
-
-];
 
 return [
     'settings' => function () {
         return require __DIR__ . '/settings.php';
+    },
+    
+    ResponseFactoryInterface::class => function (ContainerInterface $container) {
+        return $container->get(App::class)->getResponseFactory();
     },
 
     App::class => function (ContainerInterface $container) {
