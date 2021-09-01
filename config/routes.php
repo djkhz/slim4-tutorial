@@ -23,7 +23,7 @@ return function (App $app) {
         // return $response->withHeader('Location', $url);
         $response->getBody()->write($uri->getScheme());
         // $scheme = $request->getHeader("X-Url-Scheme")[0];
-        return var_dump($request->getHeader());
+        return var_dump($_SERVER['HTTP_X_FORWARDED_PROTO']);
         }
         // return $response>withStatus(302)->withHeader('Location', 'your-new-uri');
         $response->getBody()->write('Hello World');
