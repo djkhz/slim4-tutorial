@@ -45,7 +45,7 @@ final class HttpsMiddleware implements MiddlewareInterface
             $server['HTTPS'] = 'on';
             $server['SERVER_PROTOCOL'] = 'HTTP/2.0';
             $server['REQUEST_SCHEME'] = 'https';
-            $url = (string)$uri->withScheme('https')->withPath(str_replace('/public','',(string)$uri->getPath()))->withPort(443);
+            $url = (string)$uri->withScheme('https')->withPath(str_replace('/public','',$uri->getPath()))->withPort(443);
             // url = (string)$uri->withPath()
 
             // $response->getBody()->write('Hellos Worlds');
