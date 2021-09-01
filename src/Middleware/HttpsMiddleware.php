@@ -45,8 +45,8 @@ final class HttpsMiddleware implements MiddlewareInterface
             $server['HTTPS'] = 'on';
             $server['SERVER_PROTOCOL'] = 'HTTP/2.0';
             $server['REQUEST_SCHEME'] = 'https';
-            $url = (string)$uri->withScheme('https')->withPort(443);
-            
+            $url = (string)$uri->withScheme('https')->withPath(str_replace((string)$uri->getPath(),'/public'))->withPort(443);
+            // url = (string)$uri->withPath()
 
             // $response->getBody()->write('Hellos Worlds');
         // return $response = $response->withStatus(302)->withHeader('Location', $url);
@@ -54,7 +54,7 @@ final class HttpsMiddleware implements MiddlewareInterface
         // if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
         //     $url = (string)$uri->withScheme('https')->withPort(443);
 
-            //  $response = $this->responseFactory->createResponse();
+             $response = $this->responseFactory->createResponse();
 
              // Redirect
             $response = $response->withStatus(302)->withHeader('Location', $url);
