@@ -1,11 +1,6 @@
-RewriteEngine on
+# Redirect to front controller
+RewriteEngine On
 # RewriteBase /
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTPS} off
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule . index.php [L]
-#RewriteRule ^ /public/index.php [QSA,L]
-#RewriteRule ^/public$ /
-SetEnv SLIM_BASE_PATH /public
+RewriteRule ^ index.php [QSA,L]
