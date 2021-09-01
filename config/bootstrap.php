@@ -15,7 +15,7 @@ $container = $containerBuilder->build();
 
 // Create Slim App instance
 $app = $container->get(App::class);
-// $app->setBasePath($_SERVER['SLIM_BASE_PATH']);
+$app->setBasePath($_SERVER['/public']);
 // Register routes
 (require __DIR__ . '/routes.php')($app);
 
