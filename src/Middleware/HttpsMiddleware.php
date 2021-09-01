@@ -54,7 +54,7 @@ final class HttpsMiddleware implements MiddlewareInterface
         // if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
         //     $url = (string)$uri->withScheme('https')->withPort(443);
 
-             $response = $this->responseFactory->createResponse();
+            //  $response = $this->responseFactory->createResponse();
 
              // Redirect
             $response = $response->withStatus(302)->withHeader('Location', $url);
