@@ -12,7 +12,6 @@ return function (App $app) {
 
     $app->get('/test', function ($request, $response, array $args) {
         $uri = $request->getUri();
-        if(! $request->secure()) {
         if ($uri->getHost() !== 'localhost' && $uri->getScheme() !== 'https') {
             $url = (string)$uri->withScheme('https')->withPort(443);
             // $response = $this->responseFactory->createResponse();
