@@ -28,12 +28,15 @@ return function (App $app) {
         $server = $_SERVER;
 
         // fix the secure environment detection if behind an AWS ELB
-        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] !== 'https') {
             $server['HTTPS'] = 'on';
             $server['SERVER_PROTOCOL'] = 'HTTP/2.0';
             $server['REQUEST_SCHEME'] = 'https';
-            $response->getBody()->write('Hellos Worlds');
-        return $response;
+            $url = (string)$uri->withScheme('https')->withPort(443);
+            
+
+            // $response->getBody()->write('Hellos Worlds');
+        return $response = $response->withStatus(302)->withHeader('Location', $url);
         }
         // return $response>withStatus(302)->withHeader('Location', 'your-new-uri');
         $response->getBody()->write('Hello World');
