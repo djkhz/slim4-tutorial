@@ -21,7 +21,7 @@ return function (App $app) {
             // $response = $response->withStatus(302)->withHeader('Location', $url);;
 
         // return $response->withHeader('Location', $url);
-        $response->getBody()->write($request->getUri());
+        $response->getBody()->write($uri->getScheme());
         return $response;
         }
         // return $response>withStatus(302)->withHeader('Location', 'your-new-uri');
