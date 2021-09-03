@@ -14,28 +14,28 @@ $containerBuilder->addDefinitions(__DIR__ . '/container.php');
 // Create DI container instance
 $container = $containerBuilder->build();
 
-// $capsule = new DB;
-// $capsule->addConnection([
+$capsule = new Capsule;
+$capsule->addConnection([
 
-//     "driver" => "pgsql",
+    "driver" => "pgsql",
 
-//     "host" => "ec2-35-153-114-74.compute-1.amazonaws.com",
+    "host" => "ec2-35-153-114-74.compute-1.amazonaws.com",
 
-//     "port" => "5432",
+    "port" => "5432",
 
-//     "database" => "d7ct3im2qj1bk",
+    "database" => "d7ct3im2qj1bk",
 
-//     "username" => "pkeobwixazekrm",
+    "username" => "pkeobwixazekrm",
 
-//     "password" => "e0b6ee25f31df936d909e93ebaa4c6ecf9cda1a83074a84f7bb8ffef9c11a82b"
+    "password" => "e0b6ee25f31df936d909e93ebaa4c6ecf9cda1a83074a84f7bb8ffef9c11a82b"
 
 
-// ]);
-// //Make this Capsule instance available globally.
-// $capsule->setAsGlobal();
+]);
+//Make this Capsule instance available globally.
+$capsule->setAsGlobal();
 
-// // Setup the Eloquent ORM.
-// $capsule->bootEloquent();
+// Setup the Eloquent ORM.
+$capsule->bootEloquent();
 
 // Create Slim App instance
 $app = $container->get(App::class);
